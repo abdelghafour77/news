@@ -1,5 +1,7 @@
 <?php
-
+use App\Http\Controllers\PostController;
+use App\Models\User;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+    Route::get('/',[PostController::class, 'index'])->name('home');
+    Route::get('posts/{post:slug}',[PostController::class, 'show']);
+
+// Route::get('/', function () {
+//     // \Illuminate\Support\Facades\DB::listen(function($query){
+//     //     logger($query->sql, $query->bindings);
+//     // });
+//     return view('posts',[
+//         'posts' => Post::latest('id')->get()
+//     ]);
+// });
+// Route::get('/', function () {
+//     return view('posts');
+// });
+
+
+// Route::get('posts/{post:slug}', function (Post $post) {
+//     return view('post',[
+//         'post' => $post
+//     ]);
+// });
