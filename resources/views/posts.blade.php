@@ -6,6 +6,9 @@
                     <x-post-card :post="$post" />
                 @endforeach
             </div>
+            {{ $posts->links() }}
+            <br>
+            <br>
         @else
         <p>No Post Yet!</p>
         @endif
